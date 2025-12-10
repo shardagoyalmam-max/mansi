@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #FFF8E7 0%, #FFE8CC 100%);
+  color: #333;
+}
+
+/* Glass Effect Styles */
+.glass-effect {
+  background: rgba(28, 28, 28, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Mehrun & Gold Theme */
+.btn-mehrun {
+  @apply bg-mehrun hover:bg-[#600018] text-white font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95;
+}
+
+.btn-gold {
+  @apply bg-gold hover:bg-[#E6C200] text-mehrun font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 active:scale-95;
+}
+
+.btn-outline {
+  @apply border-2 border-mehrun text-mehrun hover:bg-mehrun hover:text-white py-2 px-6 rounded-lg transition duration-300;
+}
+
+/* Card Styles */
+.card-vendor {
+  @apply bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 cursor-pointer;
+}
+
+.card-service {
+  @apply glass-effect text-white rounded-lg p-4 hover:bg-[rgba(128,0,32,0.2)] transition duration-300 cursor-pointer;
+}
+
+/* Responsive Typography */
+@layer components {
+  .h1-primary {
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold text-mehrun;
+  }
+
+  .h2-primary {
+    @apply text-2xl md:text-4xl font-bold text-mehrun;
+  }
+
+  .h3-primary {
+    @apply text-xl md:text-2xl font-semibold text-mehrun;
+  }
+
+  .text-gold-accent {
+    @apply text-gold font-semibold;
+  }
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-slideInDown {
+  animation: slideInDown 0.6s ease-out;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 0.5s ease-out;
+}
+
+/* Mobile-First Responsive */
+@media (max-width: 768px) {
+  .h1-primary {
+    @apply text-2xl;
+  }
+
+  .h2-primary {
+    @apply text-xl;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8E7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #800020;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #600018;
+}
